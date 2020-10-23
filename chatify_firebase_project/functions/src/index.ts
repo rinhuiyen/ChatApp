@@ -43,7 +43,7 @@ export const onConversationCreated = functions.firestore.document("Conversations
 });
 
 
-export const onConversationUpdated = functions.firestore.document("Conversations/{conversationID").onUpdate((change, context) => {
+export const onConversationUpdated = functions.firestore.document("Conversations/{conversationID}").onUpdate((change, context) => {
     let data = change?.after.data();
     if (data){
         let members = data.members();
