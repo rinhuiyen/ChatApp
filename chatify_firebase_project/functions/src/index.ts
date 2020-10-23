@@ -46,7 +46,7 @@ export const onConversationCreated = functions.firestore.document("Conversations
 export const onConversationUpdated = functions.firestore.document("Conversations/{conversationID}").onUpdate((change, context) => {
     let data = change?.after.data();
     if (data){
-        let members = data.members();
+        let members = data.members;
         let lastMessage = data.messages[data.messages.length - 1];
         for (let index = 0;index < members.length; index++){
             let currentUserID = members[index];
